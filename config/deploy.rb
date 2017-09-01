@@ -1,15 +1,19 @@
 # config valid only for current version of Capistrano
 lock "3.9.0"
-
+set :rails_env, 'production'
 set :application, "footprint"
+set :deploy_to, "/home/sjmadmin/footprint"
 set :repo_url, "git@github.com:mrdinghy/footprint.git"
 set :branch, 'master'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
+set :migration_role, :app
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/sjmadmin/footprint"
-
+#after 'deploy:update_code', 'deploy:migrate'
+set :keep_releases, 5
+after "deploy:restart", "deploy:cleanup"
+#server "34.227.190.27", :app, :web, :db, :primary => true
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
