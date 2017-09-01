@@ -36,6 +36,9 @@ gem 'unicorn'
 group :development do
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-unicorn',   require: false
 end
 
 

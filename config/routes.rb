@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :users, except: :create
   resources :categories
   resources :posts
+  resources :visitors
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'posts#index'
+  root 'visitors#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
